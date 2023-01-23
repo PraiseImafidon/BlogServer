@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import router from "./src/routes/user-routes";
+import blogRouter from "./src/routes/blog-routes";
 
 import dotenv from 'dotenv';
 
@@ -17,6 +18,7 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 //middleware
 app.use(express.json());
 app.use("/api/user", router);
+app.use("/api/blog", blogRouter);
 
 
 //Listen to the server
