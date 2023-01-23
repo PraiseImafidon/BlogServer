@@ -16,7 +16,7 @@ export const getAllUser = async (req, res, next ) => {
 }
 
 export const signUp = async (req, res, next ) => {
-    const { firstName, lastName, userName, email, password } = req.body;
+    const { firstName, lastName, userName, email, password, blogs } = req.body;
 
     let existingUser;
     try{
@@ -36,6 +36,7 @@ export const signUp = async (req, res, next ) => {
         userName,
         email,
         password: hashedpassword,
+        blogs: []
     });
     try{
         await user.save();
